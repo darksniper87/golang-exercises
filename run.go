@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/darksniper87/golang-exercises/codesignal/arcade/intro"
+	"fmt"
 )
 
 func main() {
-	intro.Run()
+	fmt.Println()
 }
