@@ -28,7 +28,7 @@ func shapeArea(n int) int {
 
 func makeArrayConsecutive2(statues []int) int {
 	sort.Ints(statues)
-    length := len(statues)
-	
+	length := len(statues)
+
 	return (statues[length-1] - statues[0] + 1) - length
 }
