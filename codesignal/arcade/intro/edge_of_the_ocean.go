@@ -34,31 +34,32 @@ func makeArrayConsecutive2(statues []int) int {
 }
 
 func almostIncreasingSequence(sequence []int) bool {
-	x, y := 0, 0
+	errorX, errorY := 0, 0
 
-	for i := 1; i < len(sequence)-1; i++ {
-		if sequence[i] <= sequence[i-1] {
-			x++
+	for i := 0; i < len(sequence)-2; i++ {
+		if sequence[i] >= sequence[i+1] {
+			errorX++
 		}
-		if sequence[i+1] <= sequence[i-1] {
-			y++
+
+		if sequence[i] >= sequence[i+2] {
+			errorY++
+		}
+
+		if errorX > 1 || errorY > 1 {
+			return false
 		}
 	}
 
-	if sequence[len(sequence)-1] <= sequence[len(sequence)-2] {
-		x++
+	if sequence[len(sequence)-2] >= sequence[len(sequence)-1] && errorX > 0 {
+		return false
 	}
 
-	if x <= 1 && y <= 1 {
-		return true
-	}
-
-	return false
+	return true
 }
 
 func matrixElementsSum(matrix [][]int) int {
-    sum := 0
-	
+	sum := 0
+
 	for i := range matrix[0] {
 		for j := range matrix {
 			if matrix[j][i] == 0 {
@@ -67,6 +68,6 @@ func matrixElementsSum(matrix [][]int) int {
 			sum += matrix[j][i]
 		}
 	}
-    
-    return sum
+
+	return sum
 }
