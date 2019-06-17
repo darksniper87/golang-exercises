@@ -55,3 +55,18 @@ func almostIncreasingSequence(sequence []int) bool {
 
 	return false
 }
+
+func matrixElementsSum(matrix [][]int) int {
+    sum := 0
+	
+	for i := range matrix[0] {
+		for j := range matrix {
+			if matrix[j][i] == 0 {
+				break
+			}
+			sum += matrix[j][i]
+		}
+	}
+    
+    return sum
+}
