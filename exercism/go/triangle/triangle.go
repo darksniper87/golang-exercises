@@ -21,7 +21,7 @@ const (
 
 // KindFromSides returns the kind of a triangle given the size of it's sides.
 func KindFromSides(a, b, c float64) Kind {
-	if !isTiangle(a, b, c) {
+	if !isTriangle(a, b, c) {
 		return NaT
 	}
 
@@ -36,7 +36,7 @@ func KindFromSides(a, b, c float64) Kind {
 	return Sca
 }
 
-func isTiangle(a, b, c float64) bool {
+func isTriangle(a, b, c float64) bool {
 	if !isValidSide(a) || !isValidSide(b) || !isValidSide(c) {
 		return false
 	}
